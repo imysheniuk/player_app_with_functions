@@ -1,9 +1,36 @@
 <main>
-  <h1 class="title">Hello from Angular !</h1>
+  <h1 class="title">My Playlist</h1><hr>
+  <audio controls>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/ogg">
+  Your browser does not support the audio element.
+  </audio>
+  
+  <ul id="unstyled" class="song_list">
+    <li ng-repeat="song in songs">
+      <ul id="unstyled">
+        <li>{{song.name}}</li>
+        <li class="onee">
+          <audio src="{{song.adress}}" controls loop id="audioPlayer">song here</audio>
+        </li>
+        <li class="onee">
+            <button type="button" class="btn btn-dark" ng-click="removeItem(song)">X</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/logo.png">
+  <button class="btn btn-primary" ng-click="addSong1 = !addSong1" ng-show="!addSong1">Add Song</button>
+  <button class="btn btn-danger" ng-click="addSong1 = !addSong1" ng-show="addSong1">Close</button>
+
+  <div ng-if="addSong1">    
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Song name" ng-model="newSong.name">
+      <input type="text" class="form-control" placeholder="Song adress" ng-model="newSong.adress">
+    </div>
+    <button type="button" class="btn btn-secondary" ng-click="addSong(newSong)" ng-show="addSong">Add</button>
+  </div>
+
 </main>
-<footer>
-  <a ng-href="{{app.url}}">Webpack Angular Starter</a>
-</footer>
+
+
+
