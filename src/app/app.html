@@ -1,26 +1,8 @@
 <main>
   <h1 class="title">My Playlist</h1><hr>
-  <audio controls>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/ogg">
-  Your browser does not support the audio element.
-  </audio>
   
-  <ul id="unstyled" class="song_list">
-    <li ng-repeat="song in songs">
-      <ul id="unstyled">
-        <li>{{song.name}}</li>
-        <li class="onee">
-          <audio src="{{song.adress}}" controls loop id="audioPlayer">song here</audio>
-        </li>
-        <li class="onee">
-            <button type="button" class="btn btn-dark" ng-click="removeItem(song)">X</button>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <button class="btn btn-primary" ng-click="addSong1 = !addSong1" ng-show="!addSong1">Add Song</button>
-  <button class="btn btn-danger" ng-click="addSong1 = !addSong1" ng-show="addSong1">Close</button>
+  <button class="btn btn-primary add_close" ng-click="addSong1 = !addSong1" ng-show="!addSong1">Add Song</button>
+  <button class="btn btn-danger add_close" ng-click="addSong1 = !addSong1" ng-show="addSong1">Close</button>
 
   <div ng-if="addSong1">    
     <div class="input-group">
@@ -29,6 +11,22 @@
     </div>
     <button type="button" class="btn btn-secondary" ng-click="addSong(newSong)" ng-show="addSong">Add</button>
   </div>
+
+  <ul id="unstyled" class="song_list">
+    <li ng-repeat="song in songs">
+      <ul id="unstyled">
+        <li>{{song.name}}</li>
+        <li class="onee">
+          <audio src="{{song.adress}}" controls loop id="audioPlayer">song here</audio>
+        </li>
+        <li class="onee">
+          <button type="button" class="btn btn-dark btn-sm" ng-click="removeItem(song)">x</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  
 
 </main>
 

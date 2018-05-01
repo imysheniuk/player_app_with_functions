@@ -1,8 +1,7 @@
 /* styles in src/style directory are applied to the whole page */
-/* body {
-  background: #0147A7; 
-  color: black;
-} */
+body {
+  background: #595959;
+}
 
 a {
   color: #03A9F4;
@@ -22,8 +21,18 @@ footer {
 }
 
 .song_list {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 3%; 
   position: relative;
+  background-color: #d9d9d9;
+  box-shadow: 0 0 20px #001a4d;
+  padding: 5%;
+  width: 80%;
+  margin: auto;
+}
+#audioPlayer {
+	background-color: #666666;
+	color: #666666;
 }
 
 #unstyled {
@@ -32,9 +41,12 @@ footer {
 }
 
 audio {
-	width: 80%;
+	width: 90%;
 }
 
+.add_close {
+	margin-bottom: 5%;
+}
 
 .onee {
 	display: inline;
