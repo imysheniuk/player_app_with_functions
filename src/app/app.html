@@ -1,34 +1,24 @@
-<main>
-  <h1 class="title">My Playlist</h1><hr>
+ <main>
+  <h1 class="title">My Playlist</h1>
   
   <button class="btn btn-primary add_close" ng-click="addSong1 = !addSong1" ng-show="!addSong1">Add Song</button>
   <button class="btn btn-danger add_close" ng-click="addSong1 = !addSong1" ng-show="addSong1">Close</button>
 
   <div ng-if="addSong1">    
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Song name" ng-model="newSong.name">
+    <div class="add_song">
+      <input type="text" class="form-control" placeholder="Song name" ng-model="newSong.name"><br>
       <input type="text" class="form-control" placeholder="Song adress" ng-model="newSong.adress">
     </div>
-    <button type="button" class="btn btn-secondary" ng-click="addSong(newSong)" ng-show="addSong">Add</button>
+    <button type="button" class="btn btn-secondary btn_add_song" ng-click="addSong(newSong)" ng-show="addSong">Add</button>
   </div>
 
-  <ul id="unstyled" class="song_list">
-    <li ng-repeat="song in songs">
-      <ul id="unstyled">
-        <li>{{song.name}}</li>
-        <li class="onee">
-          <audio src="{{song.adress}}" controls loop id="audioPlayer">song here</audio>
-        </li>
-        <li class="onee">
-          <button type="button" class="btn btn-dark btn-sm" ng-click="removeItem(song)">x</button>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  
-
+  <div class="play-list-container song_list">
+    <div ng-repeat="song in songs track by $index">
+      <p class="song-name" ng-dblclick="dblPlay($event)">{{song.name}}</p>
+      <div class="audio-container">
+        <audio class="inline" ng-src="{{song.adress}}" controls  id="audioPlayer">song here</audio>
+        <button type="button" class="inline btn btn-dark btn-sm" ng-click="removeItem(song)">x</button>
+      </div>
+    </div>
+  </div>
 </main>
-
-
-
