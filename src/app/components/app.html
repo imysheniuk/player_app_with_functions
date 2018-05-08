@@ -1,0 +1,15 @@
+ <main>
+  <h1 class="title">My Playlist</h1>
+
+  <add-song></add-song>
+
+  <div class="play-list-container song_list">
+    <div ng-repeat="song in app.songs">
+      <p class="song-name" ng-dblclick="dblPlay($event)">{{song.name}}</p>
+      <div class="audio-container">
+        <audio class="inline" ng-src="{{song.adress}}" controls  id="audioPlayer">song here</audio>
+        <button type="button" class="inline btn btn-dark btn-sm" ng-click="removeItem(song)">x</button>
+      </div>
+    </div>
+  </div>
+</main>

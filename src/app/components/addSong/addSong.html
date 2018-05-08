@@ -1,0 +1,12 @@
+<main>
+<button class="btn btn-primary add_close" ng-click="addSong1 = !addSong1" ng-show="!addSong1">Add Song</button>
+  <button class="btn btn-danger add_close" ng-click="addSong1 = !addSong1" ng-show="addSong1">Close</button>
+
+  <div ng-if="addSong1">    
+    <div class="add_song">
+      <input type="text" class="form-control" placeholder="Song name" ng-model="newSong.name"><br>
+      <input type="text" class="form-control" placeholder="Song adress" ng-model="newSong.adress">
+    </div>
+    <button type="button" class="btn btn-secondary btn_add_song" ng-click="addSong(newSong)" ng-show="addSong">Add</button>
+  </div>
+</main>
